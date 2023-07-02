@@ -31,6 +31,9 @@ const getVehicleByID = async (vehicleID) => {
         ` SELECT 
     
         vehicle.id, 
+        vehicle.model_id,
+        vehicle.company_id,
+        vehicle.class_id,
         vehicle.reg_num, 
         company.company_name, 
         model.model_name, 
