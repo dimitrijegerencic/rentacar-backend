@@ -1,5 +1,3 @@
-const { request } = require('express');
-const dbConnection = require('../common/db-connection');
 const companyRepository = require('../repositories/company-repository');
 
 const getAllCompanies = async (request, response) => {

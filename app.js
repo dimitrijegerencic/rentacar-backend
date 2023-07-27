@@ -1,8 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const expressjwt = require('express-jwt').expressjwt;
 const cors = require('cors');
-const encoder = bodyParser.urlencoded();
 
 /** Routing imports */
 
@@ -19,10 +17,9 @@ const reservationsRouting = require('./routing/reservation-routing');
 /** DB connection imports */
 
 const dbConnection = require('./common/db-connection');
-const { json } = require('body-parser');
 const app = express();
 
-app.use((request, response, next) => {
+app.use((_, response, next) => {
     response.header('Access-Control-Allow-Origin', '*');
     0.
     response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
@@ -33,12 +30,6 @@ app.use((request, response, next) => {
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-let auth = expressjwt({
-    secret: 'SECRET',
-    userProperty: 'body.userData',
-    algorithms: ['HS256']
-})
 
 app.use(express.static("public"));
 

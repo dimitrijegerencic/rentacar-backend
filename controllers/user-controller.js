@@ -1,8 +1,4 @@
-const dbConnection = require('./../common/db-connection');
-const jwt = require('jsonwebtoken');
-
 const userRepository = require('./../repositories/user-repository');
-const { response } = require('express');
 
 const getUserByEmailAndPassword = async (request, response) => {
     const email = request.params.email;
